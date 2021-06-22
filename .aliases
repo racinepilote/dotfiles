@@ -1,0 +1,63 @@
+# Unix
+alias tlf="tail -f"
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias ...='../..'
+alias l='ls --color=tty'
+alias ll='ls --color=tty -al'
+alias lh='ls --color=tty -Alh'
+alias -g G='| grep -i'
+alias -g M='| less'
+alias -g ONE="| awk '{ print \$1}'"
+alias e="$EDITOR"
+alias v="$VISUAL"
+
+# because typing is hard
+alias bim="vim"
+alias code="vim"
+
+alias ealiases="vim $HOME/.aliases"
+
+alias :w="echo this isn\'t vim 🌟"
+alias :q='exit'
+
+alias shutdown="sudo shutdown -h now"
+
+# Git aliases.
+alias gs='git status'
+alias gc='git commit'
+alias gp='git pull --rebase'
+alias gcam='git commit -am'
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+
+# copy the current branch name
+alias gcb='git rev-parse --abbrev-ref HEAD | pbcopy'
+
+# because i never remeber this command.
+alias rfdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
+
+# Config Files
+alias vimrc="vim ~/.vimrc"
+alias vimrcbundles="vim ~/.vimrc.bundles"
+alias zshrc="vim ~/.zshrc"
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
+
+# Vagrant
+alias vg="vagrant global-status"
+
+# start webpack server localtrac frontend
+alias updatedb="sudo /usr/libexec/locate.updatedb;"
+
+##Combine these with aliases to make it even easier to navigate
+d='dirs -v | head -10'
+1='cd -'
+2='cd -2'
+3='cd -3'
+4='cd -4'
+5='cd -5'
+6='cd -6'
+7='cd -7'
+8='cd -8'
+9='cd -9'
