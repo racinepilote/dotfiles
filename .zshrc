@@ -3,7 +3,6 @@
 #
 # @author Jeff Geerling
 #
-
 # Colors.
 unset LSCOLORS
 export CLICOLOR=1

@@ -3,9 +3,9 @@ alias tlf="tail -f"
 alias ln='ln -v'
 alias mkdir='mkdir -p'
 alias ...='../..'
-alias l='ls --color=tty'
-alias ll='ls --color=tty -al'
-alias lh='ls --color=tty -Alh'
+alias l='ls -FG'
+alias ll='ls -laG'
+alias lh='ls -AGlh'
 alias -g G='| grep -i'
 alias -g M='| less'
 alias -g ONE="| awk '{ print \$1}'"
