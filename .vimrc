@@ -9,41 +9,43 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if isdirectory(expand('~/.vim/bundle/Vundle.vim'))
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+  " let Vundle manage Vundle, required
+  Plugin 'VundleVim/Vundle.vim'
 
-" Plugins
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary' " gc to comment out
-Plugin 'pangloss/vim-javascript'
-Plugin 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_working_path_mode = 0 " make ctrlp work from current dir
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'luochen1990/rainbow'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-line'
-Plugin 'kana/vim-textobj-entire'
-Plugin 'szw/vim-g'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'fatih/vim-go' " golang development
-Plugin 'jamesroutley/vim-logbook'
-Plugin 'sheerun/vim-polyglot'   " syntax highlighting in most languages
-Plugin 'joshdick/onedark.vim'   " Atom-style dark theme
+  " Plugins
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-surround'
+  Plugin 'tpope/vim-commentary' " gc to comment out
+  Plugin 'pangloss/vim-javascript'
+  Plugin 'ctrlpvim/ctrlp.vim'
+  let g:ctrlp_working_path_mode = 0 " make ctrlp work from current dir
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'luochen1990/rainbow'
+  Plugin 'kana/vim-textobj-user'
+  Plugin 'kana/vim-textobj-line'
+  Plugin 'kana/vim-textobj-entire'
+  Plugin 'szw/vim-g'
+  Plugin 'jiangmiao/auto-pairs'
+  Plugin 'fatih/vim-go' " golang development
+  Plugin 'jamesroutley/vim-logbook'
+  Plugin 'sheerun/vim-polyglot'   " syntax highlighting in most languages
+  Plugin 'joshdick/onedark.vim'   " Atom-style dark theme
 
-" All of your Plugins must be added before the following line
-call vundle#end()
+  " All of your Plugins must be added before the following line
+  call vundle#end()
+endif
 filetype plugin indent on
 
 " --------------------------------
 " Pretty things
 " --------------------------------
 syntax on
-colorscheme onedark
+silent! colorscheme onedark
 
 " Set Airline bar theme
 let g:airline_theme='bubblegum'

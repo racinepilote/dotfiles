@@ -40,9 +40,11 @@ else
 fi
 
 # Allow history search via up/down keys.
-source ${share_path}/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
+if [ -f "${share_path}/zsh-history-substring-search/zsh-history-substring-search.zsh" ]; then
+  source ${share_path}/zsh-history-substring-search/zsh-history-substring-search.zsh
+  bindkey "^[[A" history-substring-search-up
+  bindkey "^[[B" history-substring-search-down
+fi
 
 # Completions.
 autoload -Uz compinit && compinit
@@ -102,9 +104,15 @@ knownrm() {
 export COMPOSER_MEMORY_LIMIT=-1
 
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-export PATH="$(npm bin -g):$PATH"
+if [ -s "${share_path}/../opt/nvm/nvm.sh" ]; then
+  \. "${share_path}/../opt/nvm/nvm.sh"
+  [ -s "${share_path}/../opt/nvm/etc/bash_completion.d/nvm" ] && \. "${share_path}/../opt/nvm/etc/bash_completion.d/nvm"
+fi
 
-# Created by `pipx` on 2026-03-23 15:58:33
-export PATH="$PATH:/Users/racinepilote/.local/bin"
+# Add npm global bin to PATH if npm is available.
+if command -v npm &>/dev/null; then
+  export PATH="$(npm bin -g 2>/dev/null):$PATH"
+fi
+
+# pipx
+export PATH="$PATH:$HOME/.local/bin"
